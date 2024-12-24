@@ -33,4 +33,10 @@ public class UserBookingController {
     public ResponseEntity<Booking> findById(@PathVariable long id){
         return new ResponseEntity<>(bookingService.findById(id),HttpStatus.OK);
     }
+
+    @PostMapping("/sendCodeBooking/email/{email}/codeBooking/{codeBooking}")
+    public ResponseEntity<?> sendCodeBooking(@PathVariable String email , @PathVariable String codeBooking){
+        bookingService.sendCodeBookingForMail(email, codeBooking);
+        return new ResponseEntity<>("Send code booing successfully",HttpStatus.OK);
+    }
 }

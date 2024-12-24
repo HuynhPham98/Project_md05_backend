@@ -14,6 +14,7 @@ import com.ra.module5_project.security.principle.UserPrinciple;
 import com.ra.module5_project.service.comboFood.ComboFoodService;
 import com.ra.module5_project.service.foodBooking.FoodBookingService;
 import com.ra.module5_project.service.giftService.GiftService;
+import com.ra.module5_project.service.sendMail.ActiveAccount;
 import com.ra.module5_project.service.showTime.ShowTimeService;
 import com.ra.module5_project.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -195,6 +196,11 @@ public class BookingServiceImpl implements BookingService{
                 .status(booking.isStatus())
                 .created_at(booking.getCreated_at())
                 .build();
+    }
+
+    @Override
+    public void sendCodeBookingForMail(String email, String codeBooking) {
+        ActiveAccount.sendCodeBooking(email,codeBooking);
     }
 
 

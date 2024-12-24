@@ -29,4 +29,5 @@ public interface BookingService {
     Double convertSeatToMoney(Long showTimeId ,List<Long> seatIds);
     Double seatToMoney(long showTimeId , long seatId);
     BookingResponse convertToResponse(Booking booking);
+    void sendCodeBookingForMail(String email , String codeBooking);
 }
